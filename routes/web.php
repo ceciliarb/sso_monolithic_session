@@ -26,6 +26,8 @@ Route::middleware(['web', 'openid.login'])->get('/login', function() {
 
 Route::get('logout', function (Request $request) {
     $Keycloak = resolve('Keycloak');
+    Cookie::forget('token');
+    $request->session()->flush();
     return redirect($Keycloak->getLogoutUrl(['redirect_uri' => config('keycloak.redirectLogoutUri'), 'state' => '']));
 })->name("logout");
 
