@@ -20,22 +20,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware('openid.login')->get('/login', function() {
+Route::middleware(['web', 'openid.login'])->get('/login', function() {
     return 'login';
 })->name('login');
 
 Route::get('logout', function (Request $request) {
     $Keycloak = resolve('Keycloak');
-    $state = session('oauth2state');
-    $request->session()->flush();
-    // Cookie::forget('access_token');
-    // Cookie::forget('refresh_token');
-    // Cookie::forget('expires');
     return redirect($Keycloak->getLogoutUrl(['redirect_uri' => config('keycloak.redirectLogoutUri'), 'state' => '']));
 })->name("logout");
 
 
-Route::middleware('auth')->group(function() {
+Route::middleware(['web', 'auth'])->group(function() {
     Route::get('home', function() {
         $username = Auth::user()->getAuthIdentifier();
         return view('home', compact('username'));
