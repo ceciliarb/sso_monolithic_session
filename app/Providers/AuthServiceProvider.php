@@ -28,15 +28,15 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('administrador', function ($user) {
             $user = $user->toArray();
-            return in_array('administrador', $user['roles']);
+            return in_array('administrador', $user['roles'] ?? []);
         });
         Gate::define('gerente', function ($user) {
             $user = $user->toArray();
-            return in_array('gerente', $user['roles']);
+            return in_array('gerente', $user['roles'] ?? []);
         });
         Gate::define('desenvolvedor', function ($user) {
             $user = $user->toArray();
-            return in_array('desenvolvedor', $user['roles']);
+            return in_array('desenvolvedor', $user['roles'] ?? []);
         });
 
         Gate::define('resource', function ($user) {
@@ -44,7 +44,7 @@ class AuthServiceProvider extends ServiceProvider
             $currentURL = URL::current();
             $currentURL = explode('/', $currentURL);
             $currentURL = $currentURL[count($currentURL)-1];
-            return in_array($currentURL, $user['permissions']);
+            return in_array($currentURL, $user['permissions'] ?? []);
         });
     }
 }
