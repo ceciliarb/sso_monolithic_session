@@ -1728,7 +1728,7 @@
             "source": {
                 "type": "git",
                 "url": "https://gitlab.pbh.gov.br/prodabel-laravel-pacotes/keycloak-adapter.git",
-                "reference": "58482d99773a322e37e6a251ddc9790024f1db71"
+                "reference": "0fe93c6f787ce52c1ae2fc3b7be794eeebf687e9"
             },
             "require": {
                 "illuminate/support": "~5",
@@ -1775,7 +1775,7 @@
                 "KeycloakAdapter",
                 "Laravel"
             ],
-            "time": "2019-02-08T16:42:55+00:00"
+            "time": "2019-02-12T10:53:22+00:00"
         },
         {
             "name": "psr/container",

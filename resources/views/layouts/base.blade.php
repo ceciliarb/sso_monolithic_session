@@ -13,7 +13,7 @@
 <body class="container">
     <div class="jumbotron">
         <h1 class="display-4">POC de Single Sign-On</h1>
-        <p class="lead">Laravel monolítico</p>
+        <p class="lead">Laravel monolítico - usando sessions</p>
     </div>
     <div class="row text-right mb-2">
         <div class="col">
